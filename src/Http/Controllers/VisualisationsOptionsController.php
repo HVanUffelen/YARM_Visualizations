@@ -2,9 +2,9 @@
 
 namespace Yarm\Visualizations\Http\Controllers;;
 
-use App\Charts\Echarts;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Yarm\Visualizations\Charts\Echarts;
 
 class VisualisationsOptionsController extends Controller
 {

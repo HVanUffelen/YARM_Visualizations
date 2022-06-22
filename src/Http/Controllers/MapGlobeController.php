@@ -2,13 +2,13 @@
 
 namespace Yarm\Visualizations\Http\Controllers;;
 
-use App\Charts\Echarts;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ValidationController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use Yarm\Visualizations\Charts\Echarts;
 
 class MapGlobeController extends Controller
 {
