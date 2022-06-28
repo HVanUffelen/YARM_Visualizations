@@ -328,16 +328,19 @@ class StatisticsController extends Controller
             $i = 0;
             foreach ($sessionData as $dataset) {
                 $dataArray[$i]['searchterm'] = $dataset->datasets[0]->name;
-                $dataArray[$i]['values'] = $dataset->datasets[0]->values;
-                $dataArray[$i]['labels'] = $dataset->labels;
-                $sheet[$i] = $spreadsheet->createSheet($i)->setTitle($dataset->datasets[0]->name);
-                $spreadsheet->getSheet($i)->getColumnDimension('A')->setAutoSize(true);
-                $spreadsheet->getSheet($i)->getColumnDimension('B')->setAutoSize(true);
-
-                $i++;
+                $max = count($dataset->datasets[0]->values) - 1;
+                $counter = 0;
+                foreach ($dataset->datasets[0]->values as $values) {
+                    $dataArray[$i]['values'][$counter] = $dataset->datasets[0]->values[$counter]['value'];
+                    $dataArray[$i]['labels'][$counter] = $dataset->datasets[0]->values[$counter]['name'];
+                    $counter++;
+                }
             }
+            $sheet[$i] = $spreadsheet->createSheet($i)->setTitle($dataset->datasets[0]->name);
+            $spreadsheet->getSheet($i)->getColumnDimension('A')->setAutoSize(true);
+            $spreadsheet->getSheet($i)->getColumnDimension('B')->setAutoSize(true);
+            $i++;
         }
-
         //Write excel cell values
         $sheet = VisualisationsSearchController::writeValuesToExcelSheet($dataArray, $sheet, ucfirst($title), 'labels', 'values');
 
