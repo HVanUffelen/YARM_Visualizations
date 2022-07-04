@@ -328,11 +328,10 @@ class StatisticsController extends Controller
             $i = 0;
             foreach ($sessionData as $dataset) {
                 $dataArray[$i]['searchterm'] = $dataset->datasets[0]->name;
-                $max = count($dataset->datasets[0]->values) - 1;
                 $counter = 0;
                 foreach ($dataset->datasets[0]->values as $values) {
-                    $dataArray[$i]['values'][$counter] = $dataset->datasets[0]->values[$counter]['value'];
-                    $dataArray[$i]['labels'][$counter] = $dataset->datasets[0]->values[$counter]['name'];
+                    $dataArray[$i]['values'][$counter] = $values['value'];
+                    $dataArray[$i]['labels'][$counter] = $values['name'];
                     $counter++;
                 }
             }
