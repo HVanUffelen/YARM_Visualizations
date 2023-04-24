@@ -1,0 +1,29 @@
+{
+    "name": "yarm/visualizations",
+    "description": "An add-on for the YARM Reference Manager Application. Contains a variety of visualization tools",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Albert Baffour Awuah",
+            "email": "info@albert-it.be"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravelcollective/html": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yarm\\Visualizations\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yarm\\Visualizations\\VisualizationsServiceProvider"
+            ]
+        }
+    }
+}
+
