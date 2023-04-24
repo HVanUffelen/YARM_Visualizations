@@ -3,7 +3,7 @@
 
 ## Usage (follow/run the following commands in your terminal)
 
-to install package (xxx)xxxx
+to install package
 
 > composer require yarm/visualizations
 
